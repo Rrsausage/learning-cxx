@@ -55,8 +55,6 @@ int main(int argc, char **argv) {
 
     // TODO: 基类指针无法随意转换为派生类指针，补全正确的转换语句
     B &bb =static_cast<B &>(*ab);
-    // B* bbptr = dynamic_cast<B*>(ab);
-    // B& bb = *bbptr;
     ASSERT(bb.name() == 'B', "Fill in the correct value for bb->name()");
 
     // TODO: ---- 以下代码不要修改，通过改正类定义解决编译问题 ----
