@@ -1,6 +1,7 @@
-﻿#include "../exercise.h"
+﻿﻿#include "../exercise.h"
 
 // READ: 类模板 <https://zh.cppreference.com/w/cpp/language/class_template>
+#include <cstring>
 
 template<class T>
 struct Tensor4D {
@@ -13,9 +14,11 @@ struct Tensor4D {
         for (int i = 0; i < 4; ++i) {
             shape[i] = shape_[i];
         }
-        size=shape[0]*shape[1]*shape[2]*shape[3];
+        for (int i = 0; i < 4; ++i) {
+            size *= shape[i];
+        }
         data = new T[size];
-        memcpy(data, data_, size * sizeof(T));
+        std::memcpy(data, data_, size * sizeof(T));
     }
     ~Tensor4D() {
         delete[] data;
