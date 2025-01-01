@@ -10,7 +10,9 @@ struct Tensor4D {
     Tensor4D(unsigned int const shape_[4], T const *data_) {
         unsigned int size = 1;
         // TODO: 填入正确的 shape 并计算 size
-        memcpy(shape,shape_,4*sizeof(unsigned int));
+        for (int i = 0; i < 4; ++i) {
+            shape[i] = shape_[i];
+        }
         size=shape[0]*shape[1]*shape[2]*shape[3];
         data = new T[size];
         memcpy(data, data_, size * sizeof(T));
